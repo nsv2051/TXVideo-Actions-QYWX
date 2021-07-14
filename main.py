@@ -202,12 +202,12 @@ def wechat():
 #         }
 #     }
 #     r = requests.post(url='https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=' + key, headers=headers, json=data)
-    data = json.loads(r.text)
-    logging.info(r.text)
-    if data['errmsg'] == 'ok':
-        logging.info('企业微信机器人推送成功')
-    else:
-        logging.info('企业微信机器人推送失败,请检查URL是否正确')
+#     data = json.loads(r.text)
+#     logging.info(r.text)
+#     if data['errmsg'] == 'ok':
+#         logging.info('企业微信机器人推送成功')
+#     else:
+#         logging.info('企业微信机器人推送失败,请检查URL是否正确')
         
 '''
 消息推送
