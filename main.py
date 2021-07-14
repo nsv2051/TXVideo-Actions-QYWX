@@ -4,10 +4,10 @@ import json
 import logging
 import re
 
-weurl = os.environ["BOTURL"]
+weurl = os.environ["KEY"]
 #key = ''
 
-send_url = weurl
+# send_url = weurl
 # https://access.video.qq.com/user/auth_refresh 获取 cookie
 login_cookie = os.environ["LOGIN_COOKIE"]
 signin_cookie = os.environ["SIGNIN_COOKIE"]
