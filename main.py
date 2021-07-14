@@ -4,10 +4,10 @@ import json
 import logging
 import re
 
-key = os.environ["KEY"]
+weurl = os.environ["URL"]
 #key = ''
 
-send_url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=" + key
+send_url = weurl
 
 # https://access.video.qq.com/user/auth_refresh 获取 cookie
 login_cookie = os.environ["LOGIN_COOKIE"]
@@ -185,22 +185,29 @@ for url in urls:
 企业微信机器人推送
 '''
 def wechat():
-    if key == '':
+    if weurl == '':
         return
     headers = {"Content-Type": "text/plain"}
-    data = {
-        "msgtype": "markdown",
-        "markdown": {
-            "content": "<font color=\"warning\">腾讯视频签到通知</font>\n" + '> 当前会员等级为：' + str(level) + '\n > 会员到期时间：' + str(endTime) + '\n > 当前V力值：' + str(vNumber) + '\n > 升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n > 预计升到下一等级还需' + str(upgrade_times) + '天 \n' + '\n 运行日志：\n' + resultContent + '\n 会员信息查询日志: \n > ' + vip_info
-        }
-    }
-    r = requests.post(url='https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=' + key, headers=headers, json=data)
+    params = {
+      "form":"text",
+      "content": "<font color=\"warning\">腾讯视频签到通知</font>\n" + '> 当前会员等级为：' + str(level) + '\n > 会员到期时间：' + str(endTime) + '\n > 当前V力值：' + str(vNumber) + '\n > 升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n > 预计升到下一等级还需' + str(upgrade_times) + '天 \n' + '\n 运行日志：\n' + resultContent + '\n 会员信息查询日志: \n > ' + vip_info
+  }
+    res = requests.get(weurl, params=params)
+    
+    
+#     data = {
+#         "msgtype": "markdown",
+#         "markdown": {
+#             "content": "<font color=\"warning\">腾讯视频签到通知</font>\n" + '> 当前会员等级为：' + str(level) + '\n > 会员到期时间：' + str(endTime) + '\n > 当前V力值：' + str(vNumber) + '\n > 升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n > 预计升到下一等级还需' + str(upgrade_times) + '天 \n' + '\n 运行日志：\n' + resultContent + '\n 会员信息查询日志: \n > ' + vip_info
+#         }
+#     }
+#     r = requests.post(url='https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=' + key, headers=headers, json=data)
     data = json.loads(r.text)
     logging.info(r.text)
     if data['errmsg'] == 'ok':
         logging.info('企业微信机器人推送成功')
     else:
-        logging.info('企业微信机器人推送失败,请检查key是否正确')
+        logging.info('企业微信机器人推送失败,请检查weurl是否正确')
         
 '''
 消息推送
