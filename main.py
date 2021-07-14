@@ -72,7 +72,7 @@ for url in urls:
         response = requests.get(url=url, headers=headers_signin)
         responseContent = response.content.decode("utf-8")
         print(responseContent)
-        resultContent += '> `' + responseContent + '`\n\n'
+        resultContent += responseContent + '\n\n'
     elif (count == 2):
         print("发送每日赠片任务请求")
         refresh_cookie = cookie['vqq_vusession']
@@ -84,7 +84,7 @@ for url in urls:
         response = requests.get(url=url, headers=headers_signin)
         responseContent = response.content.decode("utf-8")
         print(responseContent)
-        resultContent += '> `' + responseContent + '`\n\n'
+        resultContent += responseContent + '\n\n'
     elif (count == 3):
         print("发送每日签到任务请求")
         refresh_cookie = cookie['vqq_vusession']
@@ -96,7 +96,7 @@ for url in urls:
         response = requests.get(url=url, headers=headers_signin)
         responseContent = response.content.decode("utf-8")
         print(responseContent)
-        resultContent += '> `' + responseContent + '`\n\n'
+        resultContent += responseContent + '\n\n'
     elif (count == 4):
         print("发送每日弹幕任务请求")
         refresh_cookie = cookie['vqq_vusession']
@@ -108,7 +108,7 @@ for url in urls:
         response = requests.get(url=url, headers=headers_signin)
         responseContent = response.content.decode("utf-8")
         print(responseContent)
-        resultContent += '> `' + responseContent + '`\n\n'
+        resultContent += responseContent + '\n\n'
     elif (count == 5):
         print("发送每日观影60分钟任务请求")
         refresh_cookie = cookie['vqq_vusession']
@@ -121,7 +121,7 @@ for url in urls:
         responseContent = response.content.decode("utf-8")
 
         print(responseContent)
-        resultContent += '> `' + responseContent + '`\n\n'
+        resultContent += responseContent + '\n\n'
     elif (count == 6):
         print("获取会员信息")
         headers_signin = {
@@ -190,7 +190,7 @@ def wechat():
     params = {
       "form":"text",
 #       "content": "<font color=\"warning\">腾讯视频签到通知</font>\n" + '> 当前会员等级为：' + str(level) + '\n > 会员到期时间：' + str(endTime) + '\n > 当前V力值：' + str(vNumber) + '\n > 升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n > 预计升到下一等级还需' + str(upgrade_times) + '天 \n' + '\n 运行日志：\n' + resultContent + '\n 会员信息查询日志: \n > ' + vip_info
-      "content": "【腾讯视频签到通知】" + '\n  当前会员等级为：' + str(level) + '\n  会员到期时间：' + str(endTime) + '\n  当前V力值：' + str(vNumber) + '\n  升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n  预计升到下一等级还需' + str(upgrade_times) + '天 \n' '\n 运行日志：\n' + resultContent 
+      "content": "【腾讯视频签到通知】" + '\n当前会员等级为：' + str(level) + '\n会员到期时间：' + str(endTime) + '\n当前V力值：' + str(vNumber) + '\n升到下一等级还需：' + str(upgrade_score) + 'V力值' + '\n预计升到下一等级还需' + str(upgrade_times) + '天 \n' '\n运行日志：\n' + resultContent 
   }
     res = requests.get(weurl, params=params)
     
