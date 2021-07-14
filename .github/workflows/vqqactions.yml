@@ -3,7 +3,7 @@ on:
   watch:
     types: [started]
   schedule:
-    - cron: '0 15,24 * * *'
+    - cron: '0 15,22 * * *'
 
 jobs:
   v-checkin:
