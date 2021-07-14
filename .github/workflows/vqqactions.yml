@@ -23,7 +23,7 @@ jobs:
     
     - name: run main.py
       env:
-        weurl: ${{ secrets.BOTURL }}
+        KEY: ${{ secrets.KEY }}
         LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}
         SIGNIN_COOKIE: ${{ secrets.SIGNIN_COOKIE }}
         AUTH_REFRESH_URL: ${{ secrets.AUTH_REFRESH_URL }}
