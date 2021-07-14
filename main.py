@@ -207,7 +207,7 @@ def wechat():
     if data['errmsg'] == 'ok':
         logging.info('企业微信机器人推送成功')
     else:
-        logging.info('企业微信机器人推送失败,请检查weurl是否正确')
+        logging.info('企业微信机器人推送失败,请检查URL是否正确')
         
 '''
 消息推送
