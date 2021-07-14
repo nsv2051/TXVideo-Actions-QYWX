@@ -4,7 +4,7 @@ import json
 import logging
 import re
 
-weurl = os.environ["URL"]
+weurl = os.environ["BOTURL"]
 #key = ''
 
 send_url = weurl
